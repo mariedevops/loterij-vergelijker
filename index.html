@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vergelijk alle Nederlandse loterijen: Staatsloterij, Lotto, Eurojackpot, Postcode Loterij en meer. Bekijk de laatste uitslagen, jackpots en bereken welke loterij de beste waarde biedt.">
+<meta name="keywords" content="Nederlandse loterij, lotto uitslag, eurojackpot, staatsloterij, postcode loterij, loterij vergelijken, jackpot nederland">
+<title>LoterijGids.nl – Alle Nederlandse Loterijen Vergelijken</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --paper: #faf8f3;
+    --cream: #f2efe6;
+    --gold: #c9a84c;
+    --gold-light: #e8d08a;
+    --gold-pale: #fdf6e3;
+    --red: #c0392b;
+    --green: #1a6b3c;
+    --blue: #1a3a6b;
+    --muted: #8a8880;
+    --border: #ddd9ce;
+    --shadow: 0 2px 20px rgba(15,14,12,0.08);
+    --shadow-lg: 0 8px 40px rgba(15,14,12,0.14);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--paper); }
+  nav { display: flex; gap: 1.5rem; }
+  nav a {
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  nav a:hover { opacity: 1; color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(201,168,76,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero p {
+    font-size: 1.05rem;
+    opacity: 0.72;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold-light);
+    display: block;
+    line-height: 1;
+  }
+  .hero-stat .lbl {
+    font-size: 0.75rem;
+    opacity: 0.55;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  section { padding: 3.5rem 0; }
+  section + section { border-top: 1px solid var(--border); }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ── JACKPOT TICKER ── */
+  .ticker-bar {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 28s linear infinite;
+  }
+  .ticker-inner span {
+    display: inline-block;
+    padding: 0 2.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .ticker-inner span::before { content: '🎱 '; }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ── LOTTERY CARDS ── */
+  .lottery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .lottery-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow);
+  }
+  .lottery-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+  .card-header {
+    padding: 1.2rem 1.4rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .card-title { font-weight: 600; font-size: 1rem; margin-bottom: 2px; }
+  .card-freq { font-size: 0.78rem; color: var(--muted); }
+
+  .card-body { padding: 1.2rem 1.4rem; }
+  .jackpot-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+  .jackpot-label { font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; }
+
+  .card-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1rem; }
+  .stat-box {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+  }
+  .stat-box .val { font-size: 0.92rem; font-weight: 600; }
+  .stat-box .key { font-size: 0.7rem; color: var(--muted); margin-top: 1px; }
+
+  .next-draw {
+    background: var(--gold-pale);
+    border: 1px solid var(--gold-light);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.82rem;
+    color: #7a6020;
+    margin-bottom: 1rem;
+  }
+  .next-draw strong { color: var(--ink); }
+
+  .card-footer {
+    padding: 0 1.4rem 1.2rem;
+    display: flex;
+    gap: 0.6rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.18s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    flex: 1;
+  }
+  .btn-primary:hover { background: #2a2926; }
+  .btn-secondary {
+    background: var(--cream);
+    color: var(--ink);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { background: var(--border); }
+
+  /* value badge */
+  .value-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  .badge-good { background: #d4f0e0; color: #1a6b3c; }
+  .badge-ok   { background: #fef3d0; color: #8a6010; }
+  .badge-poor { background: #fde8e6; color: #8b1a1a; }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .compare-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .compare-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: var(--cream); }
+  .compare-table .best { color: var(--green); font-weight: 600; }
+  .compare-table .worst { color: var(--red); }
+
+  .rank-circle {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .rank-1 { background: var(--gold); color: var(--ink); }
+  .rank-2 { background: #d4d4d4; color: var(--ink); }
+  .rank-3 { background: #c8a87a; color: white; }
+  .rank-other { background: var(--cream); color: var(--muted); }
+
+  /* ── VALUE CALCULATOR ── */
+  .calc-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+  }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 600px) { .calc-grid { grid-template-columns: 1fr; } }
+
+  .calc-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .calc-field select,
+  .calc-field input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: var(--paper);
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+  .calc-field select:focus,
+  .calc-field input:focus { outline: none; border-color: var(--gold); }
+
+  .calc-btn {
+    margin-top: 1.5rem;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    padding: 12px 32px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .calc-btn:hover { background: var(--gold-light); }
+
+  .calc-result {
+    margin-top: 1.5rem;
+    padding: 1.4rem;
+    background: var(--cream);
+    border-radius: 6px;
+    border-left: 4px solid var(--gold);
+    display: none;
+  }
+  .calc-result.show { display: block; }
+  .result-ev {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .result-ev.positive { color: var(--green); }
+  .result-ev.negative { color: var(--red); }
+  .result-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── RESULTS SECTION ── */
+  .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .result-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem;
+    box-shadow: var(--shadow);
+  }
+  .result-card h3 { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.8rem; }
+  .result-balls { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.8rem; }
+  .ball {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .ball-main { background: var(--ink); color: var(--paper); }
+  .ball-bonus { background: var(--gold); color: var(--ink); }
+  .ball-euro { background: var(--blue); color: white; }
+  .result-date { font-size: 0.75rem; color: var(--muted); }
+  .result-prize { font-size: 0.82rem; margin-top: 0.5rem; }
+  .result-prize strong { color: var(--green); }
+
+  /* ── AFFILIATE STRIP ── */
+  .affiliate-strip {
+    background: linear-gradient(135deg, #0f0e0c 0%, #1a1915 100%);
+    color: var(--paper);
+    padding: 2.5rem 2rem;
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }
+  .affiliate-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .affiliate-text h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .affiliate-text p { font-size: 0.9rem; opacity: 0.65; }
+  .affiliate-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .aff-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .aff-btn-gold { background: var(--gold); color: var(--ink); }
+  .aff-btn-gold:hover { background: var(--gold-light); }
+  .aff-btn-outline { background: transparent; color: var(--paper); border: 1.5px solid rgba(255,255,255,0.35); }
+  .aff-btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  /* ── FAQ ── */
+  .faq-list { max-width: 720px; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 1rem 0;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ink);
+    gap: 1rem;
+  }
+  .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+  .faq-q.open::after { transform: rotate(45deg); }
+  .faq-a {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+  }
+  .faq-a.open { max-height: 300px; padding-bottom: 1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2.5rem 2rem;
+    font-size: 0.82rem;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .footer-brand .logo { font-size: 1.1rem; display: block; margin-bottom: 0.5rem; }
+  .footer-brand p { opacity: 0.45; max-width: 280px; line-height: 1.6; }
+  .footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
+  .footer-links a { color: var(--paper); opacity: 0.5; text-decoration: none; }
+  .footer-links a:hover { opacity: 1; }
+  .footer-disclaimer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.35;
+    line-height: 1.6;
+    font-size: 0.78rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    nav { display: none; }
+    .hero { padding: 2.5rem 1.2rem 2rem; }
+    .hero-stats { gap: 1.5rem; }
+    .lottery-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 0.78rem; }
+    .compare-table th, .compare-table td { padding: 8px 10px; }
+    .affiliate-inner { flex-direction: column; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .lottery-card { animation: fadeUp 0.4s ease both; }
+  .lottery-card:nth-child(2) { animation-delay: 0.07s; }
+  .lottery-card:nth-child(3) { animation-delay: 0.14s; }
+  .lottery-card:nth-child(4) { animation-delay: 0.21s; }
+  .lottery-card:nth-child(5) { animation-delay: 0.28s; }
+
+  /* update timestamp style */
+  .update-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .update-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">Loterij<span>Gids</span>.nl</a>
+    <nav>
+      <a href="#loterijen">Loterijen</a>
+      <a href="#vergelijk">Vergelijk</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#uitslagen">Uitslagen</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- JACKPOT TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner" id="tickerContent">
+    <span>Eurojackpot – Jackpot: €120.000.000 – Trekking vrijdag</span>
+    <span>Lotto – Jackpot: €4.700.000 – Trekking zaterdag</span>
+    <span>Staatsloterij – Volgende trekking: 15 juni 2025</span>
+    <span>Postcode Loterij – Maandprijs actief – Win met je postcode</span>
+    <span>Krasloterij – Tot €1.000.000 te winnen per lot</span>
+    <span>Eurojackpot – Jackpot: €120.000.000 – Trekking vrijdag</span>
+    <span>Lotto – Jackpot: €4.700.000 – Trekking zaterdag</span>
+    <span>Staatsloterij – Volgende trekking: 15 juni 2025</span>
+    <span>Postcode Loterij – Maandprijs actief – Win met je postcode</span>
+    <span>Krasloterij – Tot €1.000.000 te winnen per lot</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Nederland's loterij vergelijker</div>
+  <h1>Welke loterij geeft jou de <em>beste kans</em>?</h1>
+  <p>Vergelijk jackpots, trekkingsfrequentie en kansen van alle grote Nederlandse loterijen op één plek. Onafhankelijk en gratis.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num">5</span>
+      <span class="lbl">Loterijen vergeleken</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num" id="totalJackpot">€126M+</span>
+      <span class="lbl">Totaal te winnen</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">Wekelijks</span>
+      <span class="lbl">Bijgewerkt</span>
+    </div>
+  </div>
+  <div class="update-note" style="justify-content:center;margin-top:1.2rem;">
+    <span class="update-dot"></span>
+    <span id="lastUpdated" style="opacity:0.5;font-size:0.75rem;color:#ccc;">Bijgewerkt: laden...</span>
+  </div>
+</div>
+
+<!-- LOTTERY CARDS -->
+<section id="loterijen">
+  <div class="container">
+    <div class="section-label">Overzicht</div>
+    <h2 class="section-title">Alle Nederlandse Loterijen</h2>
+    <p class="section-sub">Klik op een loterij voor meer informatie of om deel te nemen.</p>
+    <div class="lottery-grid" id="lotteryGrid">
+      <!-- JS generated -->
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="vergelijk">
+  <div class="container">
+    <div class="section-label">Analyse</div>
+    <h2 class="section-title">Vergelijkingstabel</h2>
+    <p class="section-sub">Gesorteerd op verwachte waarde per euro inleg (beste bovenaan).</p>
+    <div style="overflow-x:auto;">
+      <table class="compare-table" id="compareTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Loterij</th>
+            <th>Jackpot</th>
+            <th>Ticketprijs</th>
+            <th>Kans op jackpot</th>
+            <th>Verwachte waarde</th>
+            <th>Trekking</th>
+            <th>Oordeel</th>
+          </tr>
+        </thead>
+        <tbody id="compareBody">
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:0.8rem;">* Verwachte waarde is berekend op basis van jackpot en ticketprijs. Negatief betekent dat je statistisch gezien minder terugkrijgt dan je inlegt. Dit geldt voor alle loterijen.</p>
+  </div>
+</section>
+
+<!-- VALUE CALCULATOR -->
+<section id="calculator">
+  <div class="container">
+    <div class="section-label">Rekentool</div>
+    <h2 class="section-title">Verwachte Waarde Calculator</h2>
+    <p class="section-sub">Bereken hoeveel een lot je statistisch gezien oplevert. Kies een loterij en vul je inleg in.</p>
+    <div class="calc-box">
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label>Loterij</label>
+          <select id="calcLottery">
+            <option value="eurojackpot">Eurojackpot</option>
+            <option value="lotto">Lotto</option>
+            <option value="staatsloterij">Staatsloterij</option>
+            <option value="postcode">Postcode Loterij</option>
+            <option value="kras">Krasloterij</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label>Inleg (€)</label>
+          <input type="number" id="calcStake" value="10" min="1" max="1000" step="1">
+        </div>
+      </div>
+      <button class="calc-btn" onclick="calculateEV()">Bereken verwachte waarde</button>
+      <div class="calc-result" id="calcResult">
+        <div class="result-ev" id="resultEV"></div>
+        <div class="result-desc" id="resultDesc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATE STRIP -->
+<div class="affiliate-strip">
+  <div class="affiliate-inner">
+    <div class="affiliate-text">
+      <h2>Klaar om mee te doen?</h2>
+      <p>Speel verantwoord en alleen bij vergunde Nederlandse aanbieders (KSA-vergund).</p>
+    </div>
+    <div class="affiliate-links">
+      <a href="https://www.eurojackpot.nl" target="_blank" rel="noopener sponsored" class="aff-btn aff-btn-gold">🎯 Eurojackpot spelen</a>
+      <a href="https://www.lotto.nl" target="_blank" rel="noopener sponsored" class="aff-btn aff-btn-outline">🍀 Lotto spelen</a>
+      <a href="https://www.staatsloterij.nl" target="_blank" rel="noopener sponsored" class="aff-btn aff-btn-outline">🏛️ Staatsloterij</a>
+    </div>
+  </div>
+</div>
+
+<!-- LATEST RESULTS -->
+<section id="uitslagen">
+  <div class="container">
+    <div class="section-label">Uitslagen</div>
+    <h2 class="section-title">Laatste Trekkingsuitslagen</h2>
+    <p class="section-sub">De meest recente uitslagen van de grote Nederlandse loterijen. Controleer altijd de officiële website voor officiële bevestiging.</p>
+    <div class="results-grid" id="resultsGrid">
+      <!-- JS generated -->
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label">Veelgestelde vragen</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list" id="faqList">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo" href="#">Loterij<span style="color:var(--paper)">Gids</span>.nl</a>
+      <p>Onafhankelijke vergelijker van Nederlandse loterijen. Geen officiële loterij-aanbieder.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#loterijen">Loterijen</a>
+      <a href="#vergelijk">Vergelijk</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#">Privacy</a>
+      <a href="#">Disclaimer</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.eurojackpot.nl" target="_blank">Eurojackpot.nl</a>
+      <a href="https://www.lotto.nl" target="_blank">Lotto.nl</a>
+      <a href="https://www.staatsloterij.nl" target="_blank">Staatsloterij.nl</a>
+      <a href="https://www.postcodeloterij.nl" target="_blank">PostcodeLoterij.nl</a>
+      <a href="https://www.krasloterij.nl" target="_blank">Krasloterij.nl</a>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    LoterijGids.nl is een onafhankelijke informatiesite en geen officiële loterij of kansspelaanbieder. Wij zijn geen onderdeel van de Nederlandse Loterij, Staatsloterij of een andere loterij-organisatie. Gokken kan verslavend zijn. Speel verantwoord en alleen als je 18 jaar of ouder bent. Hulp nodig? Bel de Gokinfo-lijn: 0800-1995 (gratis). Kijk ook op <a href="https://www.verslavingszorg.nl" style="color:inherit">verslavingszorg.nl</a>. Links naar externe aanbieders kunnen affiliate-links zijn.
+  </div>
+</footer>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+const lotteries = [
+  {
+    id: 'eurojackpot',
+    name: 'Eurojackpot',
+    emoji: '🌍',
+    bg: '#1a3a6b',
+    jackpot: 120000000,
+    jackpotLabel: '€120.000.000',
+    ticketPrice: 3.00,
+    oddsJackpot: '1 op 139.838.160',
+    oddsOdds: 139838160,
+    drawDay: 'Dinsdag & Vrijdag',
+    type: 'Europese loterij',
+    minJackpot: 10000000,
+    maxJackpot: 120000000,
+    returnRate: 0.45,
+    affiliate: 'https://www.eurojackpot.nl',
+    resultsUrl: 'https://www.eurojackpot.nl/uitslagen',
+    description: 'De populairste Europese loterij met jackpots tot €120 miljoen. Beschikbaar in 18 landen.',
+    pros: ['Hoogste jackpots', '2x per week trekking', 'Europese prijzenstructuur'],
+    cons: ['Kleinste jackpotkans', 'Hogere instapprijs'],
+    valueRating: 'ok'
+  },
+  {
+    id: 'lotto',
+    name: 'Lotto',
+    emoji: '🍀',
+    bg: '#1a6b3c',
+    jackpot: 4700000,
+    jackpotLabel: '€4.700.000',
+    ticketPrice: 0.45,
+    oddsJackpot: '1 op 13.983.816',
+    oddsOdds: 13983816,
+    drawDay: 'Woensdag & Zaterdag',
+    type: 'Nederlandse loterij',
+    minJackpot: 500000,
+    maxJackpot: 25000000,
+    returnRate: 0.50,
+    affiliate: 'https://www.lotto.nl',
+    resultsUrl: 'https://www.lotto.nl/uitslagen',
+    description: 'De klassieke Nederlandse Lotto met de laagste ticketprijs. Ideaal voor regelmatige spelers.',
+    pros: ['Laagste ticketprijs', 'Goede uitbetalingsratio', '2x per week trekking'],
+    cons: ['Lagere jackpots', 'Minder prijscategorieën'],
+    valueRating: 'good'
+  },
+  {
+    id: 'staatsloterij',
+    name: 'Staatsloterij',
+    emoji: '🏛️',
+    bg: '#8b1a1a',
+    jackpot: 7500000,
+    jackpotLabel: '€7.500.000',
+    ticketPrice: 15.00,
+    oddsJackpot: '1 op 6.800.000',
+    oddsOdds: 6800000,
+    drawDay: '15e van de maand',
+    type: 'Traditionele loterij',
+    minJackpot: 5000000,
+    maxJackpot: 30000000,
+    returnRate: 0.60,
+    affiliate: 'https://www.staatsloterij.nl',
+    resultsUrl: 'https://www.staatsloterij.nl/uitslag',
+    description: 'De oudste Nederlandse loterij (1726). Hoge uitbetalingsratio en historische uitstraling.',
+    pros: ['Beste uitbetalingsratio', 'Beste jackpotkansen', 'Historisch betrouwbaar'],
+    cons: ['Duur ticket', 'Slechts 1x per maand'],
+    valueRating: 'good'
+  },
+  {
+    id: 'postcode',
+    name: 'Postcode Loterij',
+    emoji: '📮',
+    bg: '#c9a84c',
+    jackpot: 12500000,
+    jackpotLabel: '€12.500.000',
+    ticketPrice: 27.50,
+    oddsJackpot: '1 op 7.500.000',
+    oddsOdds: 7500000,
+    drawDay: 'Maandelijks (postcode)',
+    type: 'Postcode-loterij',
+    minJackpot: 5000000,
+    maxJackpot: 50000000,
+    returnRate: 0.50,
+    affiliate: 'https://www.postcodeloterij.nl',
+    resultsUrl: 'https://www.postcodeloterij.nl/uitslagen',
+    description: 'Win samen met je buurt! Uniek concept waarbij een hele straat of postcode wint.',
+    pros: ['Uniek buurtconcept', 'Hoge jackpots', 'Sociaal karakter'],
+    cons: ['Duurste abonnement', 'Maandelijkse kosten'],
+    valueRating: 'poor'
+  },
+  {
+    id: 'kras',
+    name: 'Krasloterij',
+    emoji: '🎰',
+    bg: '#5a3a6b',
+    jackpot: 1000000,
+    jackpotLabel: '€1.000.000',
+    ticketPrice: 3.00,
+    oddsJackpot: '1 op 1.000.000',
+    oddsOdds: 1000000,
+    drawDay: 'Direct (kraslot)',
+    type: 'Kraslot',
+    minJackpot: 250000,
+    maxJackpot: 1000000,
+    returnRate: 0.65,
+    affiliate: 'https://www.krasloterij.nl',
+    resultsUrl: 'https://www.krasloterij.nl',
+    description: 'Direct resultaat met krasloten. Hoogste kleine-prijs frequentie van alle loterijen.',
+    pros: ['Directe uitslag', 'Beste kleine kansen', 'Leuke ervaring'],
+    cons: ['Laagste jackpot', 'Beperkt opwaarts potentieel'],
+    valueRating: 'good'
+  }
+];
+
+const recentResults = [
+  {
+    name: 'Eurojackpot',
+    date: '7 juni 2025',
+    main: [3, 11, 27, 39, 47],
+    bonus: [6, 8],
+    type: 'euro',
+    prize: '€120.000.000 (gerold)',
+    bonusLabel: 'Euro-nummers'
+  },
+  {
+    name: 'Lotto',
+    date: '7 juni 2025',
+    main: [4, 17, 22, 33, 41, 44],
+    bonus: [7],
+    type: 'lotto',
+    prize: '€4.700.000 (jackpot)',
+    bonusLabel: 'Bonusnummer'
+  },
+  {
+    name: 'Staatsloterij',
+    date: '15 mei 2025',
+    main: [12, 19, 28, 35, 47],
+    bonus: [],
+    type: 'main',
+    prize: '€7.500.000 gewonnen',
+    bonusLabel: ''
+  },
+  {
+    name: 'Postcode Loterij',
+    date: '1 juni 2025',
+    main: [],
+    bonus: [],
+    type: 'postcode',
+    postcode: '2513 AA',
+    prize: '€12.500.000 (Den Haag)',
+    bonusLabel: 'Winnende postcode'
+  }
+];
+
+const faqs = [
+  {
+    q: 'Welke loterij heeft de beste kans op winst?',
+    a: 'De Krasloterij en Staatsloterij hebben de beste kansen op het winnen van de jackpot in verhouding tot de ticketprijs. De Krasloterij heeft de meeste kleine prijzen. De Eurojackpot heeft de laagste jackpotkans maar veruit de hoogste jackpots.'
+  },
+  {
+    q: 'Wat is verwachte waarde en waarom is het negatief?',
+    a: 'Verwachte waarde is het gemiddelde bedrag dat je statistisch terugkrijgt per euro inleg. Bij loterijen is dit altijd negatief, omdat de loterij een deel inhoudt voor kosten, goede doelen en winst. De verwachte waarde van €-0,50 betekent dat je gemiddeld €0,50 per lot verliest.'
+  },
+  {
+    q: 'Hoe werkt de Postcode Loterij anders dan de rest?',
+    a: 'Bij de Postcode Loterij win je niet alleen zelf — als je postcode wordt getrokken, winnen alle deelnemers in jouw straat een prijs. Dit maakt het socialer maar ook duurder (maandelijks abonnement). Je kunt alleen meedoen met je eigen woonadres.'
+  },
+  {
+    q: 'Is LoterijGids.nl een officiële loterij-aanbieder?',
+    a: 'Nee, LoterijGids.nl is een onafhankelijke informatiesite. Wij vergelijken loterijen en bieden rekenhulpmiddelen. Wij zijn geen onderdeel van de Staatsloterij, Nederlandse Loterij of andere officiële organisaties.'
+  },
+  {
+    q: 'Hoe zijn de uitslagen op deze site totstandgekomen?',
+    a: 'De getoonde uitslagen zijn voorbeelduitslagen voor illustratiedoeleinden. Controleer altijd de officiële website van de betreffende loterij voor de meest actuele en gecertificeerde trekkingsuitslagen.'
+  },
+  {
+    q: 'Wat zijn de affiliate-links op deze site?',
+    a: 'Sommige knoppen en links op LoterijGids.nl zijn affiliate-links. Dit betekent dat wij een kleine vergoeding ontvangen als u via onze site een lot koopt, zonder dat dit extra kosten voor u meebrengt. Dit helpt ons de site gratis te houden.'
+  }
+];
+
+// ─── RENDER FUNCTIONS ────────────────────────────────────────────────────────
+
+function formatEuro(amount) {
+  if (amount >= 1000000) return '€' + (amount / 1000000).toFixed(1).replace('.', ',') + ' mln';
+  if (amount >= 1000) return '€' + (amount / 1000).toFixed(0) + '.000';
+  return '€' + amount.toFixed(2).replace('.', ',');
+}
+
+function getValueBadge(rating) {
+  if (rating === 'good') return '<span class="value-badge badge-good">✓ Goede waarde</span>';
+  if (rating === 'ok')   return '<span class="value-badge badge-ok">~ Gemiddeld</span>';
+  return '<span class="value-badge badge-poor">↓ Dure inleg</span>';
+}
+
+function renderCards() {
+  const grid = document.getElementById('lotteryGrid');
+  grid.innerHTML = lotteries.map(l => `
+    <div class="lottery-card">
+      <div class="card-header">
+        <div class="card-logo" style="background:${l.bg}20;">${l.emoji}</div>
+        <div>
+          <div class="card-title">${l.name} ${getValueBadge(l.valueRating)}</div>
+          <div class="card-freq">${l.type} · ${l.drawDay}</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="jackpot-amount">${l.jackpotLabel}</div>
+        <div class="jackpot-label">Huidige jackpot (geschat)</div>
+        <div class="card-stats">
+          <div class="stat-box">
+            <div class="val">€${l.ticketPrice.toFixed(2).replace('.',',')}</div>
+            <div class="key">Ticketprijs</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">${l.oddsJackpot}</div>
+            <div class="key">Kans jackpot</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">${Math.round(l.returnRate * 100)}%</div>
+            <div class="key">Uitbetalingsratio</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">${l.drawDay.split(' ')[0]}</div>
+            <div class="key">Trekking</div>
+          </div>
+        </div>
+        <div class="next-draw">🕐 <strong>Trekking:</strong> ${l.drawDay}</div>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-primary" href="${l.affiliate}" target="_blank" rel="noopener sponsored">Meedoen →</a>
+        <a class="btn btn-secondary" href="${l.resultsUrl}" target="_blank" rel="noopener">Uitslag</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderCompare() {
+  // Sort by return rate descending
+  const sorted = [...lotteries].sort((a, b) => b.returnRate - a.returnRate);
+  const tbody = document.getElementById('compareBody');
+  tbody.innerHTML = sorted.map((l, i) => {
+    const ev = ((l.returnRate * l.ticketPrice) - l.ticketPrice).toFixed(2);
+    const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : 'rank-other';
+    const evClass = parseFloat(ev) > -0.3 ? 'best' : parseFloat(ev) < -0.6 ? 'worst' : '';
+    return `<tr>
+      <td><span class="rank-circle ${rankClass}">${i+1}</span></td>
+      <td><strong>${l.emoji} ${l.name}</strong></td>
+      <td>${l.jackpotLabel}</td>
+      <td>€${l.ticketPrice.toFixed(2).replace('.',',')}</td>
+      <td style="font-size:0.82rem">${l.oddsJackpot}</td>
+      <td class="${evClass}">€${ev.replace('-','−').replace('.',',')} per lot</td>
+      <td>${l.drawDay}</td>
+      <td>${getValueBadge(l.valueRating)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderResults() {
+  const grid = document.getElementById('resultsGrid');
+  grid.innerHTML = recentResults.map(r => {
+    let ballsHtml = '';
+    if (r.type === 'postcode') {
+      ballsHtml = `<div style="font-size:1.3rem;font-weight:700;color:var(--gold);margin-bottom:0.5rem">${r.postcode}</div><div style="font-size:0.78rem;color:var(--muted)">Winnende postcode</div>`;
+    } else {
+      ballsHtml = '<div class="result-balls">' +
+        r.main.map(n => `<div class="ball ball-main">${n}</div>`).join('') +
+        (r.type === 'euro' ? r.bonus.map(n => `<div class="ball ball-euro">${n}</div>`).join('') :
+         r.bonus.map(n => `<div class="ball ball-bonus">${n}</div>`).join('')) +
+        '</div>';
+      if (r.bonusLabel && r.bonus.length) {
+        ballsHtml += `<div style="font-size:0.72rem;color:var(--muted);margin-bottom:0.5rem">${r.bonusLabel}: ${r.bonus.join(', ')}</div>`;
+      }
+    }
+    return `<div class="result-card">
+      <h3>${r.name}</h3>
+      ${ballsHtml}
+      <div class="result-date">📅 ${r.date}</div>
+      <div class="result-prize">Jackpot: <strong>${r.prize}</strong></div>
+    </div>`;
+  }).join('');
+}
+
+function renderFAQ() {
+  const list = document.getElementById('faqList');
+  list.innerHTML = faqs.map((f, i) => `
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(${i})" id="faq-q-${i}">${f.q}</button>
+      <div class="faq-a" id="faq-a-${i}">${f.a}</div>
+    </div>
+  `).join('');
+}
+
+function toggleFAQ(i) {
+  const q = document.getElementById('faq-q-' + i);
+  const a = document.getElementById('faq-a-' + i);
+  q.classList.toggle('open');
+  a.classList.toggle('open');
+}
+
+// ─── CALCULATOR ─────────────────────────────────────────────────────────────
+function calculateEV() {
+  const lottId = document.getElementById('calcLottery').value;
+  const stake = parseFloat(document.getElementById('calcStake').value);
+  const lott = lotteries.find(l => l.id === lottId);
+  if (!lott || isNaN(stake) || stake <= 0) return;
+
+  const lots = stake / lott.ticketPrice;
+  const evPerLot = (lott.returnRate * lott.ticketPrice) - lott.ticketPrice;
+  const totalEV = evPerLot * lots;
+  const returnAmt = lott.returnRate * stake;
+
+  const resultDiv = document.getElementById('calcResult');
+  const evEl = document.getElementById('resultEV');
+  const descEl = document.getElementById('resultDesc');
+
+  evEl.textContent = '€' + totalEV.toFixed(2).replace('.', ',');
+  evEl.className = 'result-ev ' + (totalEV >= 0 ? 'positive' : 'negative');
+
+  const lotsText = Number.isInteger(lots) ? lots : lots.toFixed(1);
+
+  descEl.innerHTML = `
+    Met <strong>€${stake.toFixed(2).replace('.', ',')}</strong> koop je <strong>${lotsText} ${lott.name}-${lottId === 'kras' ? 'krasloten' : 'loten'}</strong>.<br>
+    Statistisch gezien ontvang je <strong>€${returnAmt.toFixed(2).replace('.', ',')}</strong> terug — een verlies van <strong>€${Math.abs(totalEV).toFixed(2).replace('.', ',')}</strong>.<br>
+    De uitbetalingsratio van ${lott.name} is <strong>${Math.round(lott.returnRate * 100)}%</strong>.<br>
+    <em style="font-size:0.82rem;opacity:0.7">Dit is een statistische verwachting over miljoenen spelen. Individuele resultaten wijken sterk af.</em>
+  `;
+
+  resultDiv.classList.add('show');
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+function setLastUpdated() {
+  const now = new Date();
+  const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('lastUpdated').textContent =
+    'Bijgewerkt: ' + now.toLocaleDateString('nl-NL', opts);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCards();
+  renderCompare();
+  renderResults();
+  renderFAQ();
+  setLastUpdated();
+  // Allow enter key in calculator
+  document.getElementById('calcStake').addEventListener('keydown', e => {
+    if (e.key === 'Enter') calculateEV();
+  });
+});
+</script>
+</body>
+</html>
