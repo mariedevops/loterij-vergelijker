@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Point Google to your sitemap
+Sitemap: https://www.loterij-vergelijker.nl/sitemap.xml
+
+# Block nothing — you want Google to index everything
